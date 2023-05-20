@@ -21,5 +21,12 @@ namespace SalesWebMvc.Services
             return _context.Seller.ToList();
         }
 
+        // Inserir um novo vendedor (Seller) no banco de dados
+        public void Insert(Seller obj)
+        {
+            _context.Add(obj); // Chamando apenas o .Add(), ele não confirma a inserção no banco de dados
+            _context.SaveChanges(); // Para confirmar a operação no banco é preciso chamar o .SaveChanges()
+        }
+
     }
 }
